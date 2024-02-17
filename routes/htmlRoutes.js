@@ -1,9 +1,8 @@
-// GLOBAL VARIABLES & REQUIRES
 const router = require('express').Router();
 const fs = require('fs');
 const path = require('path');
 
-// HTML Routes
+// Read and write functions
 router.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../index.html'))
 });

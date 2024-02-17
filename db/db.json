@@ -1,6 +1,1 @@
-[
-  {
-    "title": "New Note",
-    "text": ""
-  }
-]
+[{"title":"New Note","text":""},{"title":"Old Note","text":"This is an example of a note that has been saved in the past."},{"title":"newer note","text":"this is an eve3n newer note!","id":3}]
