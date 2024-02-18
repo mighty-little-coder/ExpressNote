@@ -4,6 +4,7 @@ let noteText;
 let saveNoteBtn;
 let newNoteBtn;
 let noteList;
+let editNoteBtn;
 
 if (window.location.pathname === '/notes') {
   noteForm = document.querySelector('.note-form');
@@ -11,6 +12,7 @@ if (window.location.pathname === '/notes') {
   noteText = document.querySelector('.note-textarea');
   saveNoteBtn = document.querySelector('.save-note');
   newNoteBtn = document.querySelector('.new-note');
+  editNoteBtn = document.querySelector('.edit-btn');
   clearBtn = document.querySelector('.clear-btn');
   noteList = document.querySelectorAll('.list-container .list-group');
 }
@@ -53,9 +55,11 @@ const deleteNote = (id) =>
 const renderActiveNote = () => {
   hide(saveNoteBtn);
   hide(clearBtn);
+  hide(editNoteBtn);
 
   if (activeNote.id) {
     show(newNoteBtn);
+    show(editNoteBtn);
     noteTitle.setAttribute('readonly', true);
     noteText.setAttribute('readonly', true);
     noteTitle.value = activeNote.title;
@@ -103,7 +107,18 @@ const handleNoteView = (e) => {
   e.preventDefault();
   activeNote = JSON.parse(e.target.parentElement.getAttribute('data-note'));
   renderActiveNote();
+  handleNoteEdit();
 };
+// Edits the activeNote
+const handleNoteEdit = () => {
+  noteTitle.removeAttribute('readonly');
+  noteText.removeAttribute('readonly');
+  show(saveNoteBtn);
+  show(clearBtn);
+  hide(editNoteBtn);
+  noteTitle.focus();
+}
+
 
 // Sets the activeNote to and empty object and allows the user to enter a new note
 const handleNewNoteView = (e) => {
@@ -182,8 +197,13 @@ const renderNoteList = async (notes) => {
 const getAndRenderNotes = () => getNotes().then(renderNoteList);
 
 if (window.location.pathname === '/notes') {
+  noteForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    handleNoteSave();
+    });
   saveNoteBtn.addEventListener('click', handleNoteSave);
   newNoteBtn.addEventListener('click', handleNewNoteView);
+  editNoteBtn.addEventListener('click', handleNoteEdit);
   clearBtn.addEventListener('click', renderActiveNote);
   noteForm.addEventListener('input', handleRenderBtns);
 }
