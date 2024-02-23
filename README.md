@@ -1,4 +1,4 @@
-# Notation App
+# ExpressNote
   ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
   </br>
   </br>
@@ -29,7 +29,7 @@
   </br>
   </br>
   ## Usage
-  To view the finished product, click this <a href="link">link</a>. To run the application locally, clone the repository to your local machine. Open the terminal and navigate to the root directory of the repository. Run the command `npm install` to install the necessary dependencies. Once the dependencies are installed, run the command ```npm run dev``` to start the server.
+  To view the finished product, click this <a href="https://notation-app-2aea203684b5.herokuapp.com/">link</a>. To run the application locally, clone the repository to your local machine. Open the terminal and navigate to the root directory of the repository. Run the command `npm install` to install the necessary dependencies. Once the dependencies are installed, run the command ```npm run dev``` to start the server.
   
   Once the server is locally running on your machine, navigate to the localhost port to view the application's homepage.<br>Enter notes and associated text to add them to your list of notes.<br>To delete a note, click the trash can icon to the right of the note.<br>To create a new note, click the 'new note' icon in the top right of screen.<br>To clear a note that is currently being edited, click the 'clear form' icon located next to the new note icon.<br>To edit a note once you have cleared it, click the note you would like to edit and make changes to the text in the text area. Once you are finished, click the save icon to save the changes.
   ![Image of application notes page where text shall be entered](public/assets/imgs/sample1.png)
